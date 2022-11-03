@@ -123,8 +123,8 @@ generatedNumbers();
 
 numbers.innerHTML = `${casualNumbers}`;
 
-setTimeout(hideNumbers, 4800);
-setTimeout(userNumbers, 5000); 
+setTimeout(hideNumbers, 9800);
+setTimeout(userNumbers, 10000); 
 
 
 
