@@ -7,7 +7,10 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 let casualNumbers = [];
 let inputNumbers = [];
-let numbers = document.getElementById('numbers');	
+let correctNumbers = [];
+let numbers = document.getElementById('numbers');
+let inputNum = document.getElementById('inputNum');
+let correct = document.getElementById('correct');
 
 
 
@@ -53,6 +56,13 @@ function userNumbers(){
 
    console.log(inputNumbers)
 
+   numbers.classList.remove('d-none');
+
+   numbers.innerHTML = (`I numeri corretti erano: ${casualNumbers}`);
+   inputNum.innerHTML = (`I numeri inseriti sono: ${inputNumbers}`);
+
+   checkNumbers();
+
 }
 
 
@@ -81,6 +91,32 @@ function generatedNumbers(){
 }
 
 
+//funzione che compara i due array e stampa risultato
+
+function checkNumbers(){
+
+   for (let i = 0; i < casualNumbers.length; i++){
+
+      for (let k = 0; k < inputNumbers.length; k++){
+
+         if(casualNumbers[i] == inputNumbers[k]){
+
+            correctNumbers.push(inputNumbers[k]);
+            console.log(correctNumbers);
+
+         }
+
+      }
+
+   }
+
+   let manyCorrect = correctNumbers.length;
+
+   correct.innerHTML = `Hai inserito ${manyCorrect} numeri corretti su 5: ${correctNumbers}`
+
+}
+
+
 
 
 generatedNumbers();
@@ -88,7 +124,7 @@ generatedNumbers();
 numbers.innerHTML = `${casualNumbers}`;
 
 setTimeout(hideNumbers, 4800);
-setTimeout(userNumbers, 5000);
+setTimeout(userNumbers, 5000); 
 
 
 
